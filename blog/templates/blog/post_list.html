@@ -4,19 +4,33 @@
     </head>
     <body>
         <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
+            <h1><a href="/">Blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
+		
+		<ul>
+		{% for post in posts %}
+			<div>
+				<fieldset>
+					<legend>
+						##BLOG##
+					</legend>
+					<H3>
+						{{ post.title }}
+					</h3>
+					Created on: {{ post.created_date }}
+					<br>
+					Published on: {{ post.published_date }}
+					<br>
+					<br>
+					<fieldset>
+						{{ post.text }}
+					</fieldset>
+					<br>
+					By: {{ post.author|linebreaksbr }}
+				</fieldset>
+			</div>
+			<br><br>
+		{% endfor %}
+		</ul>
     </body>
 </html>
